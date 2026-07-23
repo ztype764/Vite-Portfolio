@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Download } from 'lucide-react';
-import resumeFile from '../Resume.pdf';
-import profilePic from './IMG_20231024_141921_509.jpg';
+import resumeFile from '../../../assets/docs/Resume.pdf';
+import profilePic from '../../../assets/images/profile.jpg';
 import './Hero.css';
 
 const roles = [

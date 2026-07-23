@@ -1,0 +1,203 @@
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding-top: clamp(70px, 10vh, 110px);
+  padding-bottom: clamp(30px, 5vh, 60px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .hero-content {
+    grid-template-columns: 1.25fr 0.75fr;
+  }
+}
+
+.hero-text {
+  max-width: 650px;
+}
+
+.hero-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-image-container::before {
+  content: '';
+  position: absolute;
+  width: 105%;
+  height: 105%;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.4), rgba(59, 130, 246, 0.4));
+  filter: blur(25px);
+  z-index: 0;
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: clamp(260px, 32vw, 390px);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 4px solid var(--border-color);
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  z-index: 1;
+  animation: floatSlow 5s ease-in-out infinite;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.03) rotate(-1deg);
+  border-color: var(--primary);
+}
+
+.greeting {
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  display: block;
+  letter-spacing: 0.02em;
+}
+
+.role-text {
+  display: flex;
+  align-items: center;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  min-height: clamp(3.5rem, 6vw, 4.8rem);
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(-15px);
+}
+
+.headline {
+  font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text-main);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--text-main) 40%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  padding: clamp(0.65rem, 1.2vw, 0.85rem) clamp(1.2rem, 2vw, 1.6rem);
+  border-radius: 10px;
+  font-weight: 700;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.35);
+  transition: all 0.25s ease;
+  animation: pulseRing 3s infinite;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(var(--primary-rgb), 0.5);
+}
+
+.btn-secondary {
+  padding: clamp(0.65rem, 1.2vw, 0.85rem) clamp(1.2rem, 2vw, 1.6rem);
+  border-radius: 10px;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  background: var(--bg-main);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.tech-stack {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.tech-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 0.875rem;
+  display: block;
+  font-weight: 700;
+}
+
+.tech-icons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tech-badge {
+  padding: clamp(0.4rem, 0.8vw, 0.55rem) clamp(0.85rem, 1.5vw, 1.1rem);
+  background: var(--bg-secondary);
+  border-radius: 999px;
+  font-size: clamp(0.8rem, 1.1vw, 0.875rem);
+  font-weight: 600;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  transition: all 0.25s ease;
+}
+
+.tech-badge:hover {
+  transform: translateY(-3px) scale(1.05);
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.2);
+}
+
+@media (max-width: 768px) {
+  .headline {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+  }
+  .role-text {
+    min-height: 4rem;
+  }
+}

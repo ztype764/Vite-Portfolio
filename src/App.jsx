@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Stats from './components/Stats';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
+import Header from './components/layout/Header';
+import Hero from './components/sections/Hero/Hero';
+import Stats from './components/sections/Stats/Stats';
+import About from './components/sections/About/About';
+import Skills from './components/sections/Skills/Skills';
+import Projects from './components/sections/Projects/Projects';
+import Experience from './components/sections/Experience/Experience';
+import Contact from './components/sections/Contact/Contact';
+import GamesHub from './components/games/GamesHub';
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,9 @@ function App() {
         <Experience />
       </main>
       <Contact />
+
+      {/* Floating Game Trigger Button & Dedicated Arcade View */}
+      <GamesHub />
     </>
   );
 }

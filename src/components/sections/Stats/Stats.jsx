@@ -7,7 +7,7 @@ const Stats = () => {
       <div className="container">
         <div className="stats-grid">
           <div className="stat-item">
-            <div className="stat-value">1.5+</div>
+            <div className="stat-value">2+</div>+</div>
             <div className="stat-label">Years Experience</div>
           </div>
           <div className="stat-item">

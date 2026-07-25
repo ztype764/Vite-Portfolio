@@ -195,9 +195,10 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 100px;
+    padding-top: 110px;
   }
   .greeting {
+    padding-top: 1.25rem;
     margin-bottom: 0.35rem;
   }
   .headline {

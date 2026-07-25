@@ -3,11 +3,11 @@ export const masterWordBank = [
   { answer: 'JWT', clue: "The stateless token authentication format I implemented to protect admin API endpoints in my UrsPetCare project.", category: 'Security' },
   { answer: 'POSTGRES', clue: "The relational database system I tuned with HikariCP connection pooling for high throughput on Aiven Cloud.", category: 'Database' },
   { answer: 'RESTFUL', clue: "The clean architectural API style I designed for hotel booking, society management, and billing integrations.", category: 'Architecture' },
-  { answer: 'UNIX', clue: "The operating system environment where I configure Nginx load balancing and manage cloud server deployments.", category: 'DevOps' },
-  { answer: 'GMAIL', clue: "The SMTP protocol service I wired into Spring Boot Starter Mail to dispatch automated async subscriber updates.", category: 'Service' },
+  { answer: 'LINUX', clue: "The operating system environment where I configure Nginx load balancing and manage cloud server deployments.", category: 'DevOps' },
+  { answer: 'GMAIL', clue: "The email service I wired into Spring Boot Starter Mail to dispatch automated async subscriber updates.", category: 'Service' },
   { answer: 'REDIS', clue: "The in-memory data store I utilize for caching to boost response times by up to 40%.", category: 'Performance' },
-  { answer: 'UCF', clue: "My enterprise platform built for Uttarakhand State Co-operative Federation (ucf.org.in) serving products and tenders.", category: 'Project' },
-  { answer: 'PETCARE', clue: "My full-stack veterinary clinic platform (invoice.urspetcare.in) featuring automated vaccination alerts and invoice billing.", category: 'Project' },
+  { answer: 'UCF', clue: "My enterprise platform built for Uttarakhand State Co-operative Federation for serving products and tenders.", category: 'Project' },
+  { answer: 'PETCARE', clue: "My full-stack veterinary clinic platform featuring automated vaccination alerts and invoice billing.", category: 'Project' },
   { answer: 'PDF', clue: "The receipt format I generate dynamically using OpenPDF for clinic staff to download itemized patient invoices.", category: 'Service' },
   { answer: 'TENDER', clue: "The public bidding module I developed in UCF backend that triggers automatic subscriber email broadcasts.", category: 'Feature' },
   { answer: 'EMAIL', clue: "The asynchronous notifications I dispatch every morning at 9:00 AM to remind pet owners 2 days before due dates.", category: 'Service' },
@@ -169,7 +169,7 @@ export const generateCustomCrossword = (N = 10) => {
 
   // Format final puzzle object with cell numbers
   const finalWords = bestPuzzle ? bestPuzzle.placedWords : [];
-  
+
   // Sort words by row, col to assign numbers (1, 2, 3...)
   const startMap = {};
   let currentNum = 1;

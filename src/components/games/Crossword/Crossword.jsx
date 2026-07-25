@@ -95,6 +95,7 @@ const Crossword = () => {
 
   const containerRef = useRef(null);
   const clueRefs = useRef({});
+  const lastScrolledWordIdRef = useRef(null);
 
   // Generate a brand new custom crossword from all 3 topics
   const handleGenerateNewPuzzle = () => {
@@ -131,6 +132,7 @@ const Crossword = () => {
     setIsSolved(false);
     setScore(0);
     setMessage('');
+    lastScrolledWordIdRef.current = null;
 
     // Default focus first word
     const firstWord = currentPuzzle.words[0];
@@ -140,14 +142,17 @@ const Crossword = () => {
     }
   }, [currentPuzzle]);
 
-  // Scroll active clue into view
+  // Scroll active clue into view only when the active word changes
   useEffect(() => {
     const activeWord = getActiveWord();
-    if (activeWord && clueRefs.current[activeWord.id]) {
-      clueRefs.current[activeWord.id].scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest'
-      });
+    if (activeWord && activeWord.id !== lastScrolledWordIdRef.current) {
+      lastScrolledWordIdRef.current = activeWord.id;
+      if (clueRefs.current[activeWord.id]) {
+        clueRefs.current[activeWord.id].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest'
+        });
+      }
     }
   }, [activeCell, direction]);
 
@@ -248,7 +253,7 @@ const Crossword = () => {
   // Virtual Keyboard Handler for Mobile/Touch
   const handleVirtualKey = (key) => {
     if (!activeCell) return;
-    handleKeyDown({ key, preventDefault: () => {} });
+    handleKeyDown({ key, preventDefault: () => { } });
   };
 
   // Keyboard handler on container
@@ -318,7 +323,7 @@ const Crossword = () => {
 
         if (correct === total) {
           setIsSolved(true);
-          setMessage('🎉 Outstanding! You solved the entire custom crossword!');
+          setMessage('🎉 Outstanding! You know me better than the 99% of visitors!');
           audio.playVictory();
         } else {
           setMessage(`Crossword filled! Incorrect letters are shown in red. You can continue editing or click Check Answers.`);
@@ -422,7 +427,7 @@ const Crossword = () => {
             <h2 className="section-title">Interactive Skills Crossword</h2>
           </div>
           <p className="section-subtitle">
-            First-person clues straight from Ali Umar! Test your knowledge on my skills, production projects, and infrastructure.
+            First-person clues straight from Me! Let's see how much do you know about me.
           </p>
         </div>
 
@@ -530,17 +535,17 @@ const Crossword = () => {
             {/* On-Screen Mobile Virtual Keypad */}
             <div className="crossword-virtual-keypad">
               <div className="keypad-row">
-                {['Q','W','E','R','T','Y','U','I','O','P'].map(k => (
+                {['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'].map(k => (
                   <button key={k} className="vk-btn" type="button" onClick={() => handleVirtualKey(k)}>{k}</button>
                 ))}
               </div>
               <div className="keypad-row">
-                {['A','S','D','F','G','H','J','K','L'].map(k => (
+                {['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'].map(k => (
                   <button key={k} className="vk-btn" type="button" onClick={() => handleVirtualKey(k)}>{k}</button>
                 ))}
               </div>
               <div className="keypad-row">
-                {['Z','X','C','V','B','N','M'].map(k => (
+                {['Z', 'X', 'C', 'V', 'B', 'N', 'M'].map(k => (
                   <button key={k} className="vk-btn" type="button" onClick={() => handleVirtualKey(k)}>{k}</button>
                 ))}
                 <button className="vk-btn vk-backspace" type="button" onClick={() => handleVirtualKey('Backspace')}>⌫</button>
